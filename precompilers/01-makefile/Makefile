@@ -1,4 +1,5 @@
 default:
+	make clean
 	mkdir dist dist/js dist/css
 	make bundle
 
