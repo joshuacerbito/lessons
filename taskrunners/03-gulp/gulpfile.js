@@ -12,7 +12,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['js/add.js', 'js/multiply.js', 'js/reduce.js', 'js/sum.js', 'js/quotient.js', 'js/main.js'])
+  return gulp.src(['js/*.js'])
     .pipe(concat('bundle.js'))
     .pipe(uglify())
     .pipe(rename('bundle.min.js'))
