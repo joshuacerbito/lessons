@@ -1,0 +1,22 @@
+{
+  "name": "amd-require",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "scss": "node-sass --output-style compressed -o dist/css css/main.scss",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "build:styles": "npm run scss && npm run autoprefixer && mv dist/css/main.css dist/css/bundle.min.css",
+    "build": "npm run build:styles"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "node-sass": "^4.5.0",
+    "postcss-cli": "^3.0.0-beta",
+    "uglify-js": "^2.8.12",
+    "webpack": "^2.2.1"
+  }
+}

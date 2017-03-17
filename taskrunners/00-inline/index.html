@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>00-inline</title>
+    <style>
+    body {
+      background-color: #AA88FF;
+    }
+    h1 {
+      font-family: 'Gotham', sans-serif;
+      font-size: 10em;
+      text-align: center;
+    }
+    </style>
+  </head>
+  <body>
+    <h1 id="line1"></h1>
+    <h1 id="line2"></h1>
+
+    <script type="text/javascript">
+    function add(a, b) {
+      return a + b;
+    }
+
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    function reduce(list, iteratee, memo) {
+      list.forEach(function (item) {
+        memo = iteratee(item, memo);
+      });
+
+      return memo;
+    }
+
+    function sum(list) {
+      return reduce(list, add, 0);
+    }
+
+    function quotient(list) {
+      return reduce(list, multiply, 1);
+    }
+
+    var numbers = [1, 2, 3, 4];
+
+    var line1 = document.querySelector('#line1');
+    if ( line1 ) {
+      line1.innerHTML = sum(numbers);
+    }
+
+    var line2 = document.querySelector('#line2');
+    if ( line2 ) {
+      line2.innerHTML = quotient(numbers);
+    }
+    </script>
+  </body>
+</html>

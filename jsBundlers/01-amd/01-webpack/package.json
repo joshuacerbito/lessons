@@ -1,0 +1,24 @@
+{
+  "name": "amd-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "scss": "node-sass --output-style compressed -o dist/css css/main.scss",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "build:webpack": "mkdir -p dist/js && cp -R js/ dist/js/ && webpack dist/js/main.js dist/js/bundle.js",
+    "build:styles": "npm run scss && npm run autoprefixer && mv dist/css/main.css dist/css/bundle.min.css",
+    "build:scripts": "uglifyjs dist/js/bundle.js -m -o dist/js/bundle.min.js && rm dist/js/bundle.js",
+    "build": "npm run build:styles && npm run build:webpack && npm run build:scripts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "node-sass": "^4.5.0",
+    "postcss-cli": "^3.0.0-beta",
+    "uglify-js": "^2.8.12",
+    "webpack": "^2.2.1"
+  }
+}
